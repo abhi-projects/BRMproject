@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load staticfiles%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Books</title>
+    <link rel="stylesheet" href="{% static 'css/newbookstyle.css' %}">
+</head>
+<body>
+    <div class="header">
+        <a href="new-book">New Book</a>
+        <a href="view-book">View Book</a>
+        <a href="search-book">Search Book</a>
+    </div>
+    <div class="main">
+        <form action="/brmapp/search" method="post">{% csrf_token %}
+            {{form}}
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    {% if book_list %}
+    <div class="search_result">
+        <table style="width: 100%; text-align: left">
+            <tr>
+                <th>TITLE</th>
+                <th>AUTHOR</th>
+                <th>PRICE</th>
+                <th>PUBLISHER</th>
+            </tr>
+            {% for item in book_list %}
+            <tr>
+                <td>{{item.title}}</td>
+                <td>{{item.author}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.publisher}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% else %}
+    <h2 style="opacity: 0.5; text-align: center; margin: 200px">No Matching Results Found</h2>
+    {% endif %}
+</body>
+</html>

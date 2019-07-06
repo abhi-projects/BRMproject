@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="{% static 'css/newbookstyle.css' %}">
+</head>
+<body>
+     <div class="header">
+        <a href="new-book">New Book</a>
+        <a href="view-book">View Book</a>
+        <a href="search-book">Search Book</a>
+    </div>
+    <div class="main">
+        <form action="/brmapp/edit" method="post">{% csrf_token %}
+            <input type="hidden" name="bookid" value="{{book.id}}">
+            {{form}}
+            <input type="submit" value="Save">
+        </form>
+    </div>
+</body>
+</html>

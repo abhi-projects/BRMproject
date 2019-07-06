@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Book Detail</title>
+    <link rel="stylesheet" href="{% static 'css/newbookstyle.css'%}"
+</head>
+<body>
+    <div class="header">
+        <a href="new-book">New Book</a>
+        <a href="view-book">View Book</a>
+        <a href="search-book">Search Book</a>
+    </div>
+    <div class="main">
+        <form action="add-book" method="post">{% csrf_token %}
+           {{form}}
+            <input type="submit" value="Add Book">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load staticfiles%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Books</title>
+    <link rel="stylesheet" href="{% static 'css/newbookstyle.css'%}">
+</head>
+<body>
+    <div class="header">
+        <a href="new-book">New Book</a>
+        <a href="view-book">View Book</a>
+        <a href="search-book">Search Book</a>
+    </div>
+    <div class="main">
+        {% if book %}
+        <table style="width: 100%; text-align: left">
+            <tr>
+                <th>TITLE</th>
+                <th>AUTHOR</th>
+                <th>PRICE</th>
+                <th>PUBLISHER</th>
+            </tr>
+            {% for rows in book %}
+            <tr>
+                <td>{{rows.title}}</td>
+                <td>{{rows.author}}</td>
+                <td>{{rows.price}}</td>
+                <td>{{rows.publisher}}</td>
+                <td><a href="/brmapp/edit-book?bookid={{rows.id}}">EDIT</a></td>
+                <td><a href="/brmapp/delete-book?bookid={{rows.id}}">DELETE</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <h1 style="opacity: 0.6; text-align: center; margin: 200px">No Book Records Found</h1>
+        {% endif %}
+    </div>
+
+</body>
+</html>
