@@ -1,0 +1,89 @@
+#title{
+    text-align: center;
+    background-color: #993300;
+    height: 60px;
+    padding: 10px;
+}
+
+.book_form{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+.book_form td, .book_form th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  height: 60px;
+}
+
+.book_form tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.book_form tr:hover{
+    background-color: #ddd;
+}
+
+.book_form th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.book_form input{
+    width: 98%;
+}
+
+.book_form caption{
+    background-color: #3399ff;
+    border: 1px ridge #3399ff;
+    margin: 1px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 30px;
+}
+
+.header{
+    float: left;
+    width: 20%;
+    height: 98vh;
+    background-color: #3399ff;
+    text-align: center;
+}
+
+.main{
+    float: left;
+    width: 80%;
+}
+
+#form_input{
+    margin: 20px 0 20px 450px;
+    border-radius: 10px;
+    width: 200px;
+    padding: 10px 0 10px 0;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.header a{
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    color: white;
+    border-style: outset;
+    border-color: #3399ff;
+}
+
+.header a:hover, a:focus{
+    border-style: inset;
+    color: black;
+}
+

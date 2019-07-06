@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static 'css/newbookstyle.css' %}">
 </head>
 <body>
+    <div id="title"><h1>Book Record Management System</h1></div>
      <div class="header">
         <a href="new-book">New Book</a>
         <a href="view-book">View Book</a>
@@ -15,8 +16,11 @@
     <div class="main">
         <form action="/brmapp/edit" method="post">{% csrf_token %}
             <input type="hidden" name="bookid" value="{{book.id}}">
-            {{form}}
-            <input type="submit" value="Save">
+            <table class="book_form">
+                <caption>Edit Book</caption>
+                {{form}}
+            </table>
+            <input id="form_input" type="submit" value="Save">
         </form>
     </div>
 </body>

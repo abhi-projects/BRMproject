@@ -4,18 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Enter Book Detail</title>
-    <link rel="stylesheet" href="{% static 'css/newbookstyle.css'%}"
+    <link rel="stylesheet" href="{% static 'css/newbookstyle.css' %}"
 </head>
 <body>
+    <div id="title"><h1>Book Record Management System</h1></div>
     <div class="header">
         <a href="new-book">New Book</a>
         <a href="view-book">View Book</a>
         <a href="search-book">Search Book</a>
     </div>
-    <div class="main">
+    <div class="main" style="overflow-x: auto">
         <form action="add-book" method="post">{% csrf_token %}
-           {{form}}
-            <input type="submit" value="Add Book">
+            <table class="book_form">
+                <caption>New Book Form</caption>
+                {{form}}
+            </table>
+            <input type="submit" value="Add Book" id="form_input">
         </form>
     </div>
 </body>
