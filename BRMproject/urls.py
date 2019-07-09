@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
+from BRMapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('brmapp/', include('BRMapp.urls'))
+    url('^brmapp/', include('BRMapp.urls')),
+    url('^$', views.user_login)
 ]

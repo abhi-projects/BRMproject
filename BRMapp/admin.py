@@ -1,3 +1,5 @@
 from django.contrib import admin
+from BRMapp.models import Books, BrmUser
 
-# Register your models here.
+admin.site.register(BrmUser)
+admin.site.register(Books)

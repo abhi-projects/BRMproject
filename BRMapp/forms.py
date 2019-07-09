@@ -9,4 +9,6 @@ class NewBookForm(forms.Form):
 
 
 class Search(forms.Form):
-    title = forms.CharField(label='Title', max_length=100)
+    title = forms.CharField(label='Title', max_length=100, widget=forms.TextInput(attrs={
+        'placeholder': 'Search By Title'
+    }))

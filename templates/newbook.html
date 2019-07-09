@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Enter Book Detail</title>
-    <link rel="stylesheet" href="{% static 'css/newbookstyle.css' %}"
+    <link rel="stylesheet" href="{% static 'css/newbookstyle.css' %}">
 </head>
 <body>
-    <div id="title"><h1>Book Record Management System</h1></div>
+<div id="title"><h1>Book Record Management System<span style="float: right; font-weight: 10; font-size: 25px">Hi! {{username}}</span></h1></div>
     <div class="header">
-        <a href="new-book">New Book</a>
-        <a href="view-book">View Book</a>
-        <a href="search-book">Search Book</a>
+        <a href="/brmapp/new-book">New Book</a>
+        <a href="/brmapp/view-book">View Book</a>
+        <a href="/brmapp/search-book">Search Book</a>
+         <a href="/brmapp/user-logout">Logout</a>
     </div>
     <div class="main" style="overflow-x: auto">
-        <form action="add-book" method="post">{% csrf_token %}
+        <form action="/brmapp/add-book" method="post">{% csrf_token %}
             <table class="book_form">
                 <caption>New Book Form</caption>
                 {{form}}

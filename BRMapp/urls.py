@@ -10,4 +10,6 @@ urlpatterns = [
     url('^search-book', views.search_book),
     url('^search', views.search),
     url('^edit', views.edit),
+    url('^user-login', views.user_login),
+    url('^user-logout', views.user_logout)
 ]

@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="{% static 'css/newbookstyle.css' %}">
 </head>
 <body>
-    <div id="title"><h1>Book Record Management System</h1></div>
+    <div id="title"><h1>Book Record Management System<span style="float: right; font-weight: 10; font-size: 25px">Hi! {{username}}</span></h1></div>
     <div class="header">
-        <a href="new-book">New Book</a>
-        <a href="view-book">View Book</a>
-        <a href="search-book">Search Book</a>
+        <a href="/brmapp/new-book">New Book</a>
+        <a href="/brmapp/view-book">View Book</a>
+        <a href="/brmapp/search-book">Search Book</a>
+         <a href="/brmapp/user-logout">Logout</a>
     </div>
     <div class="main">
         <div id="search_form">
@@ -21,7 +22,7 @@
            </form>
         </div>
 
-    {% if book_list %}
+    {% if book %}
     <div class="search_result">
         <table class="book_form">
             <tr>
@@ -30,7 +31,7 @@
                 <th>PRICE</th>
                 <th>PUBLISHER</th>
             </tr>
-            {% for item in book_list %}
+            {% for item in book %}
             <tr>
                 <td>{{item.title}}</td>
                 <td>{{item.author}}</td>
