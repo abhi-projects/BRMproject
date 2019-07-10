@@ -2,10 +2,9 @@ from django.shortcuts import render
 from BRMapp.models import Books
 from BRMapp.forms import NewBookForm, Search
 from django.http import HttpResponseRedirect
-from django.contrib.auth import authenticate, login,logout
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
-from django.urls import reverse
 
 
 @never_cache
@@ -27,11 +26,13 @@ def user_login(request):
 
 
 @never_cache
+@login_required(login_url='/brmapp/user-login/')
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/brmapp/user-login')
 
 
+@never_cache
 @login_required(login_url='/brmapp/user-login')
 def new_book(request):
     form = NewBookForm()
@@ -39,6 +40,7 @@ def new_book(request):
     return render(request, 'newbook.html', {'form': form, 'username': username})
 
 
+@never_cache
 @login_required(login_url='/brmapp/user-login')
 def add_book(request):
     if request.method == 'POST':
@@ -52,6 +54,7 @@ def add_book(request):
         return HttpResponseRedirect('/brmapp/view-book')
 
 
+@never_cache
 @login_required(login_url='/brmapp/user-login')
 def view_book(request):
     book = Books.objects.order_by('price')
@@ -59,6 +62,7 @@ def view_book(request):
     return render(request, 'view_book.html', {'book': book, 'username': username})
 
 
+@never_cache
 @login_required(login_url='/brmapp/user-login')
 def edit_book(request):
     book = Books.objects.get(id=request.GET['bookid'])
@@ -68,6 +72,7 @@ def edit_book(request):
     return render(request, 'edit_book.html', {'form': form, 'book': book, 'username': username})
 
 
+@never_cache
 @login_required(login_url='/brmapp/user-login')
 def edit(request):
     if request.method == 'POST':
@@ -82,6 +87,7 @@ def edit(request):
         return HttpResponseRedirect('/brmapp/view-book')
 
 
+@never_cache
 @login_required(login_url='/brmapp/user-login')
 def delete_book(request):
     book = Books.objects.get(id=request.GET['bookid'])
@@ -89,6 +95,7 @@ def delete_book(request):
     return HttpResponseRedirect('/brmapp/view-book')
 
 
+@never_cache
 @login_required(login_url='/brmapp/user-login')
 def search_book(request):
     form = Search()
@@ -96,6 +103,7 @@ def search_book(request):
     return render(request, 'search_book.html', {'form': form, 'username': username})
 
 
+@never_cache
 @login_required(login_url='/brmapp/user-login')
 def search(request):
     if request.method == 'POST':
